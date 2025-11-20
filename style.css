@@ -1,0 +1,100 @@
+/* --- 全局设置 --- */
+* { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #050505;
+    color: #ffffff;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* --- 动态背景 Canvas --- */
+#star-canvas {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    z-index: -1;
+    background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
+}
+
+/* --- 导航栏 --- */
+nav {
+    position: fixed; top: 0; width: 100%;
+    padding: 20px 50px;
+    display: flex; justify-content: space-between; align-items: center;
+    z-index: 100;
+    background: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.logo {
+    font-size: 1.5rem; font-weight: bold; letter-spacing: 2px;
+    background: linear-gradient(45deg, #00c6ff, #92fe9d);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    text-decoration: none;
+}
+
+.nav-links a {
+    color: #fff; text-decoration: none; margin-left: 30px;
+    font-size: 1rem; transition: 0.3s; position: relative;
+}
+.nav-links a:hover, .nav-links a.active { color: #00c6ff; }
+
+/* --- 通用容器 --- */
+.container {
+    max-width: 1000px; margin: 0 auto; padding: 120px 20px 50px;
+}
+
+/* --- 首页特有样式 --- */
+.hero {
+    height: 100vh; display: flex; flex-direction: column;
+    justify-content: center; align-items: center; text-align: center;
+}
+.hero-title { font-size: 4rem; margin-bottom: 20px; text-shadow: 0 0 20px rgba(0, 198, 255, 0.5); }
+.typing-effect {
+    font-family: 'Courier New', monospace; font-size: 1.5rem; color: #a0a0a0;
+    border-right: 2px solid #00c6ff; white-space: nowrap; overflow: hidden;
+    animation: blink 0.75s step-end infinite;
+}
+@keyframes blink { 50% { border-color: transparent } }
+
+/* --- 首页入口卡片 --- */
+.portal-grid {
+    display: flex; gap: 40px; margin-top: 60px; justify-content: center; flex-wrap: wrap;
+}
+.portal-card {
+    width: 250px; height: 150px;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 15px;
+    display: flex; flex-direction: column; justify-content: center; align-items: center;
+    text-decoration: none; color: #fff;
+    transition: 0.4s; backdrop-filter: blur(5px);
+}
+.portal-card i { font-size: 3rem; margin-bottom: 10px; }
+.portal-card:hover {
+    transform: translateY(-10px); background: rgba(255,255,255,0.15);
+    box-shadow: 0 0 30px rgba(0, 198, 255, 0.3); border-color: #00c6ff;
+}
+.portal-card.math:hover { box-shadow: 0 0 30px rgba(255, 0, 204, 0.3); border-color: #ff00cc; }
+
+/* --- 子页面列表样式 --- */
+.page-header { margin-bottom: 40px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 20px; }
+.page-header h1 { font-size: 2.5rem; }
+.article-list { display: grid; gap: 20px; }
+.article-item {
+    background: rgba(255, 255, 255, 0.03);
+    padding: 25px; border-radius: 10px; border-left: 4px solid #555;
+    transition: 0.3s; cursor: pointer;
+}
+.article-item:hover { background: rgba(255, 255, 255, 0.08); transform: translateX(10px); }
+.article-item h3 { margin-bottom: 10px; font-size: 1.4rem; }
+.article-item p { color: #bbb; font-size: 0.95rem; line-height: 1.5; }
+.meta { font-size: 0.8rem; color: #666; margin-top: 10px; display: block; }
+
+/* 不同板块的强调色 */
+.math-theme .article-item { border-left-color: #ff00cc; }
+.math-theme .article-item:hover h3 { color: #ff00cc; }
+.cs-theme .article-item { border-left-color: #00c6ff; }
+.cs-theme .article-item:hover h3 { color: #00c6ff; }

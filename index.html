@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Universe | Home</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <canvas id="star-canvas"></canvas>
+
+    <nav>
+        <a href="index.html" class="logo">ASTRO.LOG</a>
+        <div class="nav-links">
+            <a href="index.html" class="active">首页</a>
+            <a href="math.html">数学笔记</a>
+            <a href="cs.html">代码世界</a>
+        </div>
+    </nav>
+
+    <div class="hero">
+        <h1 class="hero-title">探索 · 记录 · 思考</h1>
+        <!-- data-text 属性控制打字机内容 -->
+        <div class="typing-effect" id="typing-text" data-text="Math is the language, Code is the poetry."></div>
+        
+        <div class="portal-grid">
+            <a href="math.html" class="portal-card math">
+                <i class="fas fa-infinity" style="color: #ff00cc;"></i>
+                <h3>进入数学板块</h3>
+            </a>
+            <a href="cs.html" class="portal-card cs">
+                <i class="fas fa-code" style="color: #00c6ff;"></i>
+                <h3>进入计算机板块</h3>
+            </a>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
