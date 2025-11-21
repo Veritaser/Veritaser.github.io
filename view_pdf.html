@@ -1,0 +1,48 @@
+<!-- 这是一个专门用来阅读 PDF 的页面模板 -->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <!-- ...这里复制之前页面的 head 内容... -->
+    <title>笔记阅读 | My Universe</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* PDF 阅读器容器 */
+        .pdf-container {
+            width: 100%;
+            height: 80vh; /* 占据屏幕高度的 80% */
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 10px;
+            overflow: hidden;
+            background: #000;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="star-canvas"></canvas>
+    
+    <nav>
+        <!-- ...这里复制之前的导航栏... -->
+    </nav>
+
+    <div class="container">
+        <a href="math.html" style="color:#00c6ff; text-decoration:none; display:inline-block; margin-bottom:20px;">
+            <i class="fas fa-arrow-left"></i> 返回列表
+        </a>
+
+        <div class="page-header">
+            <h1>线性代数手写笔记</h1>
+        </div>
+
+        <!-- 嵌入 PDF 的核心代码 -->
+        <div class="pdf-container">
+            <!-- src 填你的 PDF 路径 -->
+            <iframe src="pdfs/linear-algebra-notes.pdf" width="100%" height="100%" style="border:none;">
+                <!-- 如果浏览器不支持 iframe，显示下载链接 -->
+                <p>您的浏览器不支持在线预览，请<a href="pdfs/linear-algebra-notes.pdf">点击下载</a>查看。</p>
+            </iframe>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -6,6 +6,11 @@
     <title>Math Notes | My Universe</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
+    <style>
+        .article-section { margin-bottom: 36px; }
+        .section-header { font-size: 1.4rem; color: #ffb3e6; margin-bottom: 12px; }
+        .article-item { margin-bottom: 14px; }
+    </style>
 </head>
 <body class="math-theme">
     <canvas id="star-canvas"></canvas>
@@ -22,29 +27,87 @@
     <div class="container">
         <div class="page-header">
             <h1><i class="fas fa-infinity" style="color: #ff00cc; margin-right:15px;"></i>数学笔记</h1>
-            <p style="color:#ccc; margin-top:10px;">记录对几何、代数与分析的深度思考。</p>
+            <p style="color:#ccc; margin-top:10px;">她不一样T_T，她们都一样，只有数学永远不变。</p>
         </div>
 
         <div class="article-list">
-            <!-- 文章条目 1 -->
-            <div class="article-item">
-                <h3>微积分：瞬间即永恒</h3>
-                <p>当我们把时间切分得足够细，极限的概念是如何连接离散与连续的？关于 Epsilon-Delta 语言的个人理解。</p>
-                <span class="meta">2023-10-24 · Calculus</span>
-            </div>
-            
-            <!-- 文章条目 2 -->
-            <div class="article-item">
-                <h3>线性代数的几何直观</h3>
-                <p>矩阵不仅仅是数字表格，它是空间的变换。特征向量是变换中的不动轴。</p>
-                <span class="meta">2023-11-02 · Linear Algebra</span>
+            <!-- 页面内快速导航 -->
+            <div class="quick-nav" style="margin-bottom:18px;">
+                <a href="#analysis" style="margin-right:12px; color:#4d406e;">分析学</a>
+                <a href="#manifolds" style="margin-right:12px; color:#4d406e;">流形与拓扑</a>
+                <a href="#functional" style="margin-right:12px; color:#4d406e;">泛函</a>
+                <a href="#stats" style="color:#4d406e;">统计与深度学习</a>
+                <a href="#algebra" style="margin-right:12px; color:#4d406e;">代数学</a>
+                </div>
+
+            <!-- 分块：分析学 -->
+            <div id="analysis" class="article-section">
+                <h2 class="section-header">分析学</h2>
+                <div class="article-item">
+                    <h3>微积分：瞬间即永恒</h3>
+                    <p>当我们把时间切分得足够细，极限的概念是如何连接离散与连续的？关于 Epsilon-Delta 语言的个人理解。</p>
+                    <span class="meta">2023-10-24 · Calculus</span>
+                </div>
+
+                <div class="article-item">
+                    <h3>实变函数与测度的直观</h3>
+                    <p>从黎曼到勒贝格，为什么测度论对现代分析如此重要？</p>
+                    <span class="meta">示例 · Measure Theory</span>
+                </div>
             </div>
 
-            <!-- 文章条目 3 -->
-            <div class="article-item">
-                <h3>贝叶斯定理在生活中的应用</h3>
-                <p>如何根据新的证据更新我们的信念？</p>
-                <span class="meta">2023-11-15 · Probability</span>
+            <!-- 分块：流形与拓扑 -->
+            <div id="manifolds" class="article-section">
+                <h2 class="section-header">流形与拓扑</h2>
+                <div class="article-item">
+                    <h3>曲率与局部几何的直观</h3>
+                    <p>在小尺度上，流形表现得像欧几里得空间；曲率如何影响全局拓扑？</p>
+                    <span class="meta">示例 · Differential Geometry</span>
+                </div>
+
+                <div class="article-item">
+                    <h3>拓扑基本概念：同伦与同调</h3>
+                    <p>为何连通性、同伦与同调是分类空间的重要工具？</p>
+                    <span class="meta">示例 · Topology</span>
+                </div>
+            </div>
+
+            <!-- 分块：泛函 -->
+            <div id="functional" class="article-section">
+                <h2 class="section-header">泛函</h2>
+                <div class="article-item">
+                    <h3>希尔伯特空间与算子理论入门</h3>
+                    <p>内积空间的完备性为何关键，线性算子有哪些谱性质？</p>
+                    <span class="meta">示例 · Functional Analysis</span>
+                </div>
+            </div>
+
+            <!-- 分块：统计与深度学习 -->
+            <div id="stats" class="article-section">
+                <h2 class="section-header">统计与深度学习</h2>
+                <div class="article-item">
+                    <h3>贝叶斯定理在生活中的应用</h3>
+                    <p>如何根据新的证据更新我们的信念？</p>
+                    <span class="meta">2023-11-15 · Probability</span>
+                </div>
+
+                <div class="article-item">
+                    <h3>深度学习中的概率视角</h3>
+                    <p>从最大似然到贝叶斯神经网络，概率思想如何帮助理解泛化？</p>
+                    <span class="meta">示例 · Deep Learning</span>
+                </div>
+            </div>
+
+            <!-- 分块：代数学 -->
+            <div id="algebra" class="article-section">
+                <h2 class="section-header">代数学</h2>
+                <div class="article-item">
+                    <h3>线性代数杂谈</h3>
+                    <p>矩阵、向量空间与线性变换的美妙世界。</p>
+                    <h3>抽象代数</h3>
+                    <p>群、环与域的基本概念及其应用。</p>
+                    <span class="meta">示例 · Algebra</span>
+                </div>
             </div>
         </div>
     </div>
