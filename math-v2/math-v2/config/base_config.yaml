@@ -1,0 +1,35 @@
+# Base Configuration for Math Reasoning Pipeline
+# Based on DeepSeekMath-V2 methodology for Qwen-1.5B on GSM8K
+
+# Model Configuration
+model:
+  name: "Qwen/Qwen2.5-1.5B-Instruct"
+  trust_remote_code: true
+  torch_dtype: "bfloat16"
+  max_length: 2048
+
+# Teacher Model for Data Generation
+teacher:
+  provider: "openai"  # openai, anthropic, deepseek
+  model_name: "gpt-4o"  # or claude-3-5-sonnet, deepseek-chat
+  temperature: 0.7
+  max_tokens: 2048
+
+# Dataset Configuration
+dataset:
+  name: "gsm8k"
+  train_split: "train"
+  test_split: "test"
+  cache_dir: "./data/cache"
+  
+# Training Configuration
+training:
+  output_dir: "./outputs"
+  logging_dir: "./logs"
+  seed: 42
+  
+# Hardware Configuration
+hardware:
+  device: "cuda"
+  num_gpus: 1
+  mixed_precision: "bf16"

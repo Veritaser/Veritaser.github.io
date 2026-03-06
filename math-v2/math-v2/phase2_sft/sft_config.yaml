@@ -1,0 +1,48 @@
+# SFT Training Configuration
+# DeepSpeed ZeRO-2 配置用于Qwen-1.5B全量微调
+
+# Model Configuration
+model:
+  name_or_path: "Qwen/Qwen2.5-1.5B-Instruct"
+  trust_remote_code: true
+  torch_dtype: "bfloat16"
+  use_flash_attention: true
+
+# Data Configuration
+data:
+  train_file: "../data/sft/train.jsonl"
+  val_file: "../data/sft/val.jsonl"
+  max_length: 2048
+  preprocessing_num_workers: 4
+
+# Training Configuration
+training:
+  output_dir: "../outputs/sft"
+  num_train_epochs: 3
+  per_device_train_batch_size: 4
+  per_device_eval_batch_size: 4
+  gradient_accumulation_steps: 4
+  # Effective batch size = 4 * 4 = 16
+  
+  learning_rate: 2.0e-5
+  weight_decay: 0.01
+  warmup_ratio: 0.03
+  lr_scheduler_type: "cosine"
+  
+  logging_steps: 10
+  save_steps: 500
+  eval_steps: 500
+  evaluation_strategy: "steps"
+  save_total_limit: 3
+  
+  load_best_model_at_end: true
+  metric_for_best_model: "eval_loss"
+  greater_is_better: false
+  
+  bf16: true
+  gradient_checkpointing: true
+  
+  deepspeed: "../config/deepspeed_zero2.json"
+  report_to: "tensorboard"
+  
+  seed: 42

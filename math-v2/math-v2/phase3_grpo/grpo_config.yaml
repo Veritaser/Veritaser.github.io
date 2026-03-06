@@ -1,0 +1,50 @@
+# GRPO Training Configuration
+
+# Model Configuration
+model:
+  path: "../outputs/sft"  # SFT训练后的模型路径
+  trust_remote_code: true
+  torch_dtype: "bfloat16"
+  use_flash_attention: true
+
+# Data Configuration
+data:
+  dataset: "gsm8k"
+  num_samples: null  # null表示使用全部数据
+  max_length: 2048
+
+# GRPO Training Configuration
+training:
+  output_dir: "../outputs/grpo"
+  num_train_epochs: 1
+  per_device_train_batch_size: 2
+  gradient_accumulation_steps: 12
+  # Effective batch size = 2 * 12 = 24
+  
+  learning_rate: 2.0e-6  # RL阶段使用较小的学习率
+  
+  # GRPO specific
+  num_generations: 16  # 每个问题采样G=16个回答 (增加采样数以稳定Baseline)
+  max_new_tokens: 1024
+  temperature: 0.7
+  
+  # KL penalty (防止模型偏离太远)
+  kl_coef: 0.05
+  
+  # Reward weights
+  outcome_weight: 1.0      # 答案正确性权重
+  format_weight: 0.1       # 格式正确性权重
+  consistency_weight: 0.5  # 自评一致性权重
+  
+  # Logging and saving
+  logging_steps: 10
+  save_steps: 100
+  
+  # Mixed precision and optimization
+  bf16: true
+  gradient_checkpointing: true
+  
+  deepspeed: "../config/deepspeed_zero2.json"
+  report_to: "tensorboard"
+  
+  seed: 42
